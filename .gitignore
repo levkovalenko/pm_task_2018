@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+news_*
+lemm_*
+words_*
+venv
+test_*
