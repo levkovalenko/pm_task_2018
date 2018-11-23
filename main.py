@@ -1,7 +1,9 @@
-from matrix_of_words import prior, words_w, ast,weights
+from matrix_of_words import prior, learn, ast, sys
 import math
 import operator
 answe = 0
+words_w, weights = learn(10000)
+print("обучение окончено")
 with open("answer.txt", 'w') as ans:
     with open(f"test_clear/test.txt") as f:
 
@@ -20,12 +22,14 @@ with open("answer.txt", 'w') as ans:
                     w.append(i)
             for i in words_w.keys():
                 # 			score.update(i=math.log(prior[i]))
-                score.update(dict.fromkeys([i], (-math.log(prior[i]))))
-
+                score.update({i: math.log(prior[i])})
                 for j in w:
-                    if j in weights[i]:
-                        #print(weights[i][j])
-                        score[i] += -math.log(weights[i][j])
-            #print(article[0], max(score.items(), key=operator.itemgetter(1))[0])
+                    if j in weights[i].keys():
+                        score[i] += math.log(weights[i][j])
             ans.write(f"{max(score.items(), key=operator.itemgetter(1))[0]}\n")
+    sys.stdout.write('=')
+    sys.stdout.flush()
+sys.stdout.write('\n')
+sys.stdout.flush()
 
+print(f"{answe/600}%")
