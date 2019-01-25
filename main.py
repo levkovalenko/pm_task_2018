@@ -1,4 +1,4 @@
-from matrix_of_words import prior, learn, ast, sys
+from learner import prior, learn, ast, sys
 import math
 import operator
 answe = 0
@@ -20,10 +20,10 @@ for k in range(50,60):
                     w.append(i)
             for i in words_w.keys():
                 # 			score.update(i=math.log(prior[i]))
-                score.update({i: math.log(prior[i])})
+                score.update({i: -math.log(prior[i])})
                 for j in w:
                     if j in weights[i].keys():
-                        score[i] += math.log(weights[i][j])
+                        score[i] += -math.log(weights[i][j])
             answe += 1 if article[0] == max(score.items(), key=operator.itemgetter(1))[0] else 0
     sys.stdout.write('=')
     sys.stdout.flush()
