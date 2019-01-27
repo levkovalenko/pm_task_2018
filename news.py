@@ -1,4 +1,4 @@
-import pymorphy2
+from lem import get_lemm
 import re
 import ast
 
@@ -14,7 +14,6 @@ class News(object):
             headline, text = line.split('\t')
         self.headline = headline
         self.text = text
-        self.morph = pymorphy2.MorphAnalyzer()
 
     def __str__(self):
         return f"{self.theme} {self.headline}"
@@ -32,13 +31,13 @@ class News(object):
         text = ''
         headline = ''
         for word in self.headline.split(' '):
-            word = self.morph.parse(word)[0]
-            if word.tag.POS not in text_utils:
-                headline += word.normal_form + ' '
+            word = get_lemm(word)
+            if word[1] not in text_utils:
+                headline += word[0] + ' '
         for word in self.text.split(' '):
-            word = self.morph.parse(word)[0]
-            if word.tag.POS not in text_utils:
-                text += word.normal_form + ' '
+            word = get_lemm(word)
+            if word[1] not in text_utils:
+                text += word[0] + ' '
         self.headline = headline
         self.text = text
 

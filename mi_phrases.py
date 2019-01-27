@@ -81,6 +81,6 @@ for theme in themes:
                 continue
             mi = (((N11 / N) * log2((N * N11) / (N1x * Nx1))) + ((N01 / N) * log2((N * N01) / (N0x * Nx1))) + (
                         (N10 / N) * log2((N * N10) / (N1x * Nx0))) + ((N00 / N) * log2((N * N00) / (N0x * Nx0))))
-            f.write(f"{term} {mi}\n")
+            f.write(f"{phrase} {mi}\n")
 
         print(theme)
