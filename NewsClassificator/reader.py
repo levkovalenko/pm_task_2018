@@ -1,6 +1,6 @@
 import asyncio
 
-from news import News
+from NewsClassificator.news import News
 
 
 @asyncio.coroutine

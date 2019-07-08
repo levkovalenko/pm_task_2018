@@ -110,6 +110,5 @@ venv
 test_*
 tesr_clear/test.txt
 answer.txt
-transport_*
 mi_themes
 

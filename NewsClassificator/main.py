@@ -1,4 +1,4 @@
-from learner import prior, learn, ast, sys
+from NewsClassificator.learner import prior, learn, ast, sys
 import math
 import operator
 answe = 0

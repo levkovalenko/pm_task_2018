@@ -1,4 +1,4 @@
-from lem import get_lemm
+from NewsClassificator.lem import get_lemm
 import re
 import ast
 

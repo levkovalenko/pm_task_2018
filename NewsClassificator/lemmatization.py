@@ -1,4 +1,4 @@
-from reader import read
+from NewsClassificator.reader import read
 import sys
 
 

@@ -1,4 +1,4 @@
-from reader import read
+from NewsClassificator.reader import read
 import sys
 
 reader = read("lemm_text_clear_1000/1.txt")
